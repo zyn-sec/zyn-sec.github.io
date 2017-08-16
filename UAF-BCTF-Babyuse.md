@@ -1,6 +1,7 @@
 ## UAF - Babyuse - BCTF 2017
 **Requirements:**
 
+- Find the vulnerability (Use-After-Free)
 - An address on heap to store the fake vtable.
 - The address of libc to find the what should inside the fake vtable.
 - On the heap: fake vtable, an object with the fake vtable address as the name.
@@ -190,6 +191,7 @@
 	0x5655eba0:	0x00000000	0x00000000	0x00000000	0x00000000
 	```
 ### IV. Finaly trigger the vulnerability
+
 	```
 	./exploit.py 
 	[+] Starting local process './babyuse': pid 41084
