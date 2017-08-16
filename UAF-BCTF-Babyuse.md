@@ -23,21 +23,21 @@
 
 3. To find the address of the chunck, let's put the breakpoint after the `drop()` function and print the heapinfo.
 
-	```
+```
 	(gdb) heapinfo
 	(0x10)fastbin[0]: 0x5655ea30 --> 0x5655ea20 --> 0x0
 	(0x18)fastbin[1]: 0x5655ea08 --> 0x0
-	```
+```
  - This is the result after the free, `0x5655ea08` is the address of the object, `0x5655ea20` is the old name chunk and `0x5655ea30` is the new name chunck.
 
  - After `buy()`, it will apply for a chunck to store the name. 
 
-		```
+	```
 		(gdb) x/20x 0x5655ea20
 		0x5655ea20:	0x00000000	0x00000011	0x41414141	0x42424242 <-- old name
 		0x5655ea30:	0x00000000	0x000205d1	0x00000000	0x00000000
 		0x5655ea40:	0x00000000	0x00000000	0x00000000	0x00000000
-		```
+	```
 
  - Then, the `rename()` will apply a new chunck to store the new name and free the old name chunck back to the fastbin.
 
