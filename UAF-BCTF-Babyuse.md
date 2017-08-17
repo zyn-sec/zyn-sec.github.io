@@ -1,8 +1,9 @@
 ## BCTF 2017 - Babyuse
-**Requirements:**
+
+### Requirements:
 
 - Find the vulnerability (Use-After-Free)
-- An address on heap to store the fake vtable.
+- An address on the heap to store the fake vtable.
 - The address of libc to find the what should inside the fake vtable.
 - On the heap: fake vtable, an object with the fake vtable address as the name.
 - Create the chunck with specific size and order to get control of them.
@@ -20,7 +21,7 @@
 		 heapbase : 0x5655a000
 	```
 	
-2. Because the Use-After-Free vulnerability in the `drop()` function, we need to what's the address means when we leak it. Besides, when we use the `rename()` function **it will release the old name chunck and apply a new name chunck**. Plus the attribute of the fastbin, when we drop the object with the new name, the name chunck will return to the fastbin and add to the first of the link list. The result of this is that, when we call the `use()` function the first line of the output is the name of the gun, but this is the new name of the gun, when we drop the gun, the new name chunck will be released and the `FD` pointer will point to old name chunck. So, we can print the address from the heap.
+2. Because of the Use-After-Free vulnerability in the `drop()` function, we need to what's the address means when we leak it. Besides, when we use the `rename()` function **it will release the old name chunck and apply a new name chunck**. Plus the attribute of the fastbin, when we drop the object with the new name, the name chunck will return to the fastbin and add to the first of the link list. The result of this is that, when we call the `use()` function the first line of the output is the name of the gun, but this is the new name of the gun, when we drop the gun, the new name chunck will be released and the `FD` pointer will point to old name chunck. So, we can print the address from the heap.
 
 3. To find the address of the chunck, let's put the breakpoint after the `drop()` function and print the heapinfo.
 
