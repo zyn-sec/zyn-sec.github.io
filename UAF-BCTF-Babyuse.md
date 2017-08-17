@@ -194,7 +194,7 @@
 	
 ### Trigger the vulnerability
 
-	The last step, we can use our script the trigger!
+	 - The last step, we can use our script the trigger!
 	
 	```
 	./exploit.py 
