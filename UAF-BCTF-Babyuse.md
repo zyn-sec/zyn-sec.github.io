@@ -8,7 +8,7 @@
 - On the heap: fake vtable, an object with the fake vtable address as the name.
 - Create the chunck with specific size and order to get control of them.
 
-### I. Leak the address in the heap
+### Leak the address in the heap
 
 1. Let's use pwngdb to print the base address of heap
 
@@ -59,7 +59,7 @@
 	0x5655ea40:	0x00000000	0x000205c1	0x00000000	0x00000000
 	```
 
-### II. Leak the `execv()` function address in libc.so.6
+### Leak the `execv()` function address in libc.so.6
 
 1. Because the libc.so.6 file is provided by the challenge, we can find the address of the `execv()` function in it and put the address in a fake vtable of the class and call it. So, the first step is to leak the base address of libc. 
 
@@ -119,7 +119,7 @@
 	[*] Stopped process './babyuse' (pid 9737)
 	```
 	
-### III. Craft the fake vtable and intent object
+### Craft the fake vtable and intent object
 
 1. We need to craft the payload with the one_gadget address as a name of a gun. Put the payload on the heap.
 
@@ -191,7 +191,7 @@
 	0x5655eb90:	0x00000000	0x00000000	0x00000000	0x00000000
 	0x5655eba0:	0x00000000	0x00000000	0x00000000	0x00000000
 	```
-### IV. Finaly trigger the vulnerability
+### Trigger the vulnerability
 
 
 	```
