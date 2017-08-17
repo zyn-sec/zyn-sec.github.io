@@ -194,7 +194,6 @@
 	
 ### Trigger the vulnerability
 
-
 	```
 	./exploit.py 
 	[+] Starting local process './babyuse': pid 41084
