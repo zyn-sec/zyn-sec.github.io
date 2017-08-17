@@ -193,7 +193,7 @@
 	```
 	
 ### Trigger the vulnerability
-
+The last step, we can use our script the trigger!
 	```
 	./exploit.py 
 	[+] Starting local process './babyuse': pid 41084
