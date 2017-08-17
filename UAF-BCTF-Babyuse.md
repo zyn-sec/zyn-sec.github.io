@@ -193,6 +193,7 @@
 	```
 	
 ### Trigger the vulnerability
+
 The last step, we can use our script the trigger!
 
 	```
