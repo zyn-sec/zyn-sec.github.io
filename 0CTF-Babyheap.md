@@ -2,7 +2,7 @@
 
 This is another basic heap challenge from the 0CTF which I use some different way to leak the address(That's what we always need for a heap challenge)!
 
-**Requirements**
+### Requirements
 
 - Find the vulnerability(heap overflow in `fill()` function)
 - Leak the libc address.
@@ -10,7 +10,7 @@ This is another basic heap challenge from the 0CTF which I use some different wa
 - Find the place to put the one_gadget address.
 - Trigger!
 
-### 1. Leak the address in the libc
+### Leak the address in the libc
 
 As a heap challenge with a given libc.so, what we allways need to do is too leak the address from the libc and calculate the offset to find the base address of libc. This is also same with this challenge from 0CTF. 
 
