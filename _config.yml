@@ -1,1 +1,10 @@
 theme: jekyll-theme-cayman
+title: Yingnan Blog
+SEOTitle: Yingnan Blog
+description: "Cool Blog"
+
+# SNS settings
+github_username: zyn-sec
+
+# Build settings
+3paginate: 10
