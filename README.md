@@ -1,16 +1,37 @@
-## Welcome to zyn-sec.io
+dbyll
+=====
 
-This is the space for the real CTF's challenges write ups. Here's the list.
+Open source stylish, minimalistic theme for jekyll.  
+Demo: http://dbtek.github.io/dbyll/
 
-[BCTF 2017-Babyuse / Use-After-Free](https://zyn-sec.github.io/BCTF-Babyuse)
-	
- - 多次利用UAF泄露堆内地址和libc中地址
- - 根据free的调用顺序和chunk大小构建需要的fastbin free list
- - 构建伪造的vtable并根据上一步的list放到确定的地址
+## New
+- Dbyll for Ghost is now available. Get it [here](https://github.com/dbtek/dbyll-ghost) now.
+- :new: Check out [Paper](https://github.com/dbtek/paper), new Material Design Jekyll theme.
 
-[0CTF 2017-Babyheap / Fastbin-dup](https://zyn-sec.github.io/0CTF-Babyheap)
+### Features
+- Responsive layout.
+- Supports tags and categories.
+- Social profile and bio of author.
+- Bootstrap based.
+- Glyphicon and Font-Awesome Icons.
+- Pagination.
+- Syntax highlighting with pygments.
+- Disqus comments.
+- :new: Custom sidebar background image.
 
- - 如果出现简单的堆溢出，则可以直接修改fastbin free list中的顺序，甚至直接将还在使用的chunk放到里面
- - 修改list的时候同时需要伪造chunk的大小
- - ？？？问题：泄露出来地址之后我们应当把shell放到哪里？
- - ？？？问题：_malloc_hook_的大小如何控制？
+
+### Download
+* [Download dbyll](https://github.com/dbtek/dbyll/archive/master.zip)
+
+### Install
+- You need to have [ruby](https://www.ruby-lang.org/en/documentation/installation/) installed in your system.
+- Install bundler which helps in specifying and installing dependencies of any Ruby project. ```gem install bundler```
+- Go to the root of the repo and run this - ```bundle install```
+- Then - ```bundle exec jekyll serve```
+
+### Screenshots
+![dbyll-screenshot](assets/media/dbyll-ss.png)
+
+### License
+- [MIT](http://opensource.org/licenses/MIT)
+
