@@ -66,7 +66,7 @@ pwndbg> x/40gx 0x560c20963000
 0x560c20963060:	0x0000000000000000	0x0000000000000091 <- Index 3
 ```
 
-#### Fastbin attack
+### Fastbin attack
 
 Third, because the `0x560c20963060` is the address of the 3rd chunk(Index) which is a small chunk, we need to cheat `malloc()` to allocate that chunk for us. What we gonne do is to `fill()` the 0th chunk and overflow the address in the free list from `0x560c20963040` to `0x560c20963060`. Then if we allocate same size memory from the fastbin, we can get `0x560c20963060` instead of `0x560c20963040`.
 
