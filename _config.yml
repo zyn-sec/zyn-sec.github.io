@@ -1,11 +1,10 @@
-title: 标题
-disqus: disqus short name
-author:  
-  name: Yingnan Zhao
-  email: zhao.yingn@husky.neu.edu
-  github: zyn-sec
-  linkedin: Yingnan Zhao
-  #resume: 你的resume账户名  
-  bio: CTFer for pwnable 
+theme: jekyll-theme-cayman
+title: Yingnan Blog
+SEOTitle: Yingnan Blog
+description: "Cool Blog"
 
-#sidebar_background_image: 侧边栏背景图片
+# SNS settings
+github_username: zyn-sec
+
+# Build settings
+3paginate: 10
